@@ -1,19 +1,21 @@
 #!/bin/bash -x
 
-echo "enter 3 elements" 
-for(( i = 0; i < 3; i++ ))
+echo "enter 3 elements" x
+ 
+for(( i=0; i<3; i++ ))
 do
     read x
     array[i]=$x
 done
 sum=0
-for(( i = 0; i < 1; i++ ))
+for(( i=0; i<1; i++ ))
 do
-    for(( j = i + 1; j < 2; j++ ))
+    for(( j=$((i+1)); j<=5; j++ ))
     do
-        for(( k = j + 1; k < 3; k++ ))
+        for(( k=j+1; k<3; k++ ))
         do
-            if(( array[i] + array[j] + array[k] == sum))
+            sum=$((${array[i]}+${array[j]}+${array[k]}))
+            if [ $sum -eq 0 ]
             then
                 echo "The triplet is: ${array[i]} ${array[j]} ${array[k]}"
             else
